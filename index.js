@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const { config } = require('./config/index');
 const projectsApi = require('./routes/projects');
 const {
@@ -12,6 +13,7 @@ const notFoundHandler = require('./utils/middleware/notFoundHandler');
 const app = express();
 
 app.use(express.json());
+app.use(cors());
 
 // routes
 projectsApi(app);
